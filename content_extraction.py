@@ -1,5 +1,6 @@
 import argparse
 import csv
+import datetime
 import re
 import requests
 from bs4 import BeautifulSoup
@@ -9,6 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("station")
 args = parser.parse_args()
 station = args.station
+d = datetime.datetime.today()
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
@@ -26,7 +28,7 @@ def content_extraction(url):
 
 	return [title, paragraph, entry_date, url]
 
-with open(station + '.csv', 'w', newline='') as file:
+with open(station + str(d.year) + '-' + str(d.month) + '-' + str(d.day) + '.csv', 'w', newline='') as file:
 	writer = csv.writer(file)
 	with open(station + '_urls_dedup.csv', newline='') as file_in:
 		reader = csv.reader(file_in)

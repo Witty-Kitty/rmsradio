@@ -6,11 +6,7 @@ parser.add_argument("station")
 args = parser.parse_args()
 station = args.station
 
-if station == 'mulembe':
-	blacklist = ["https://rmsradio.co.ke/category/" + station + "-fm/", "https://rmsradio.co.ke/brands/" + station + "-fm/"]
-if station == 'sulwe':
-	blacklist = ["https://rmsradio.co.ke/category/" + station + "-fm/", "https://rmsradio.co.ke/brands/" + station + "-fm/"]
-if station == 'vuuka':
+if station == 'bahari' or 'chamgei' or 'egesa' or 'inooro' or 'mulembe' or 'musyi' or 'muuga' or 'ramogi' or 'sulwe' or 'vuuka' or 'wimwaro':
 	blacklist = ["https://rmsradio.co.ke/category/" + station + "-fm/", "https://rmsradio.co.ke/brands/" + station + "-fm/"]
 
 url_list = []
